@@ -138,6 +138,7 @@ h1{
   font-size: 2em;
   text-align: center;
   margin-bottom: 2rem;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 h2{
