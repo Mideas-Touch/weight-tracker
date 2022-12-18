@@ -155,6 +155,8 @@ h2{
   width: 200px;
   height: 200px;
 
+  color: rgb(97, 39, 39);
+  font-weight: 900;
   text-align: center;
   background-color: white;
   border-radius: 999px;
@@ -195,6 +197,7 @@ form:hover{
 form input[type="number"]{
   appearance: none;
   outline: none;
+  color: #888;
   border: none;
   background-color: white;
 
@@ -247,6 +250,7 @@ form input[type="submit"]:hover{
   align-items: center;
   padding: 0.5rem;
   cursor: pointer;
+  color:#888;
 }
 
 .weight-history ul li:nth-child(even){
@@ -270,6 +274,6 @@ form input[type="submit"]:hover{
 
 .weight-history ul li small{
   color: #888;
-  font-style: italic;
+  font-style: italic;;
 }
 </style>
