@@ -25,7 +25,54 @@ const addWeight = () =>{
 watch(weights, newWeights =>{
   const ws = [...newWeights]
 
-  console.log(ws)
+  // We cant updat the weight by spreading a new one, so
+
+  if (weightChart.value){
+    weightChart.value.data.labels = ws
+      .sort((a, b) => a.date - b.date)
+      .map(w => new Date(w.date).toLocaleDateString())
+      // get the last 7 values that we entered
+      .slice(-7)
+
+    weightChart.value.data.datasets[0].data = ws
+      .sort((a, b) => a.date - b.date)
+      .map(w => w.weight)
+      // get the last 7 values that we entered
+      .slice(-7)
+
+    weightChart.value.update()
+
+    // return the whole watch function
+
+    return
+  }
+  nextTick(() =>{
+    weightChart.value = new chart(weightChartEl.value.getContext('2d'),{
+      type: 'line',
+      data: {
+        labels: ws.sort((a, b) => a.date - b.date)
+        .map(w => new Date(w.date).toLocaleDateString()),
+        datasets: [
+          {
+            label: 'Weight',
+            data: ws
+             .sort((a, b) => a.date - b.date)
+             .map(w => w.weight),
+             backgroundColor: 'rgba(255, 105, 180, 0.2)',
+             borderColor: 'rgb(255, 105, 180, 1)',
+             borderWidth: 1,
+             fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    })
+  })
+
+  // console.log(weightChartEl)
 }, { deep: true })
 </script>
 
