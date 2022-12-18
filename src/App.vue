@@ -275,6 +275,6 @@ form input[type="submit"]:hover{
 
 .weight-history ul li small{
   color: #888;
-  font-style: italic;;
+  font-style: italic;
 }
 </style>
